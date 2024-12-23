@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alumnos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-$END$
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Lista de Alumnos</h1>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Curso</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterar sobre la lista de alumnos -->
+        <tr th:each="alumno : ${alumnos}">
+            <td th:text="${alumno.id}">1</td>
+            <td th:text="${alumno.nombre}">John</td>
+            <td th:text="${alumno.apellido}">Doe</td>
+            <td th:text="${alumno.edad}">20</td>
+            <td th:text="${alumno.curso}">Matemáticas</td>
+        </tr>
+        <!-- Mostrar mensaje si no hay alumnos -->
+        <tr th:if="${#lists.isEmpty(alumnos)}">
+            <td colspan="5" class="text-center">No hay alumnos registrados.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -20,6 +20,10 @@ public class SecurityConfig {
 
         return http.build();
     }
-
+    // uso esto porque se me ocurrió trabajar con spring security
+    // y me pide un usuario y contraseña para poder
+    //ingresar en la página web
+    //este código lo deshabilita y pasa directo al listado de alumnos
+    //pueden comentar o eliminar esta clase y ver qué pasa
 
 }
